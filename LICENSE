@@ -22,7 +22,7 @@ This is a human-readable summary of (and not a substitute for) the license. For 
 This code builds upon following open-source code-bases. Please visit the URLs to see the respective LICENSES:
 
 1) https://github.com/leggedrobotics/legged_gym
-2) https://github.com/leggedrobotics/rsl_rl
+2) https://github.com/leggedrobotics/parkour_rsl_rl
 3) https://github.com/Toni-SM/skrl
 
 ------------------
