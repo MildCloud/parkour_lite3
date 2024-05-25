@@ -47,15 +47,15 @@ class Lite3ParkourCfg( LeggedRobotCfg ):
 
             'FL_Knee': 1.6,   # [rad] # knee
             'FR_Knee': 1.6,    # [rad]
-            'H_Knee': 1.6,  # [rad]
+            'HL_Knee': 1.6,  # [rad]
             'HR_Knee': 1.6,    # [rad]
         }
 
     class control( LeggedRobotCfg.control ):
         # PD Drive parameters:
         control_type = 'P'
-        stiffness = {'joint': 40.}  # [N*m/rad]
-        damping = {'joint': 1}     # [N*m*s/rad]
+        stiffness = {'HipX': 40., 'HipY': 40., 'Knee': 40.}  # [N*m/rad]
+        damping = {'HipX': 1, 'HipY': 1, 'Knee': 1}     # [N*m*s/rad]
         action_scale = 0.25
         decimation = 4
 
