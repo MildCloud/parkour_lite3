@@ -396,13 +396,14 @@ class LeggedRobot(BaseTask):
                             self.delta_next_yaw[:, None],
                             0*self.commands[:, 0:2], 
                             self.commands[:, 0:1],  #[1,1]
-                            (self.env_class != 17).float()[:, None], 
-                            (self.env_class == 17).float()[:, None],
-                            self.reindex((self.dof_pos - self.default_dof_pos_all) * self.obs_scales.dof_pos),
-                            self.reindex(self.dof_vel * self.obs_scales.dof_vel),
-                            self.reindex(self.action_history_buf[:, -1]),
-                            self.reindex_feet(self.contact_filt.float()-0.5),
+                            (self.env_class != 17).float()[:, None], # 1
+                            (self.env_class == 17).float()[:, None], # 1
+                            self.reindex((self.dof_pos - self.default_dof_pos_all) * self.obs_scales.dof_pos), # 12
+                            self.reindex(self.dof_vel * self.obs_scales.dof_vel), # 12
+                            self.reindex(self.action_history_buf[:, -1]), # 12
+                            self.reindex_feet(self.contact_filt.float()-0.5), # 4
                             ),dim=-1)
+        # print('obs_buf.shape', obs_buf.shape) # torch.size([num_envs, 53])
         priv_explicit = torch.cat((self.base_lin_vel * self.obs_scales.lin_vel,
                                    0 * self.base_lin_vel,
                                    0 * self.base_lin_vel), dim=-1)
@@ -414,6 +415,8 @@ class LeggedRobot(BaseTask):
         ), dim=-1)
         if self.cfg.terrain.measure_heights:
             heights = torch.clip(self.root_states[:, 2].unsqueeze(1) - 0.3 - self.measured_heights, -1, 1.)
+            # print('heights.shape', heights.shape) # num_envs, num_scan
+            # print('self.measured_heights.shape', self.measured_heights.shape) # num_envs, num_scan
             self.obs_buf = torch.cat([obs_buf, heights, priv_explicit, priv_latent, self.obs_history_buf.view(self.num_envs, -1)], dim=-1)
         else:
             self.obs_buf = torch.cat([obs_buf, priv_explicit, priv_latent, self.obs_history_buf.view(self.num_envs, -1)], dim=-1)

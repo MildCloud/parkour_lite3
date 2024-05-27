@@ -202,7 +202,7 @@ def get_args():
         {"name": "--proj_name", "type": str,  "default": "parkour_new", "help": "run folder name."},
         
         {"name": "--teacher", "type": str, "help": "Name of the teacher policy to use when distilling"},
-        {"name": "--exptid", "type": str, "help": "exptid"},
+        {"name": "--exptid", "type": str, "default": "test", "help": "exptid"},
         {"name": "--resumeid", "type": str, "help": "exptid"},
         {"name": "--daggerid", "type": str, "help": "name of dagger run"},
         {"name": "--use_camera", "action": "store_true", "default": False, "help": "render camera for distillation"},
