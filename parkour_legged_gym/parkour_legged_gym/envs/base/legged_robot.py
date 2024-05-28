@@ -929,10 +929,14 @@ class LeggedRobot(BaseTask):
         body_names = self.gym.get_asset_rigid_body_names(robot_asset)
         self.dof_names = self.gym.get_asset_dof_names(robot_asset)
         # print('self.dof_names', self.dof_names)
-        # self.dof_names ['FL_HipX', 'FL_HipY', 'FL_Knee', 'FR_HipX', 'FR_HipY', 'FR_Knee', 'HL_HipX', 'HL_HipY', 'HL_Knee', 'HR_HipX', 'HR_HipY', 'HR_Knee']
+        # self.dof_names ['FL_HipX', 'FL_HipY', 'FL_Knee', 'FR_HipX', 'FR_HipY', 'FR_Knee', 'HL_HipX', 'HL_HipY', 'HL_Knee', 'HR_HipX', 'HR_HipY', 'HR_Knee'] # lite3
+        # sefl.dof_names ['FL_hip_joint', 'FL_thigh_joint', 'FL_calf_joint', 'FR_hip_joint', 'FR_thigh_joint', 'FR_calf_joint', 'RL_hip_joint', 'RL_thigh_joint', 'RL_calf_joint', 'RR_hip_joint', 'RR_thigh_joint', 'RR_calf_joint'] # a1
         self.num_bodies = len(body_names)
         self.num_dofs = len(self.dof_names)
         feet_names = [s for s in body_names if self.cfg.asset.foot_name in s]
+        print('feet_names\n', feet_names)
+        # ['FL_FOOT', 'FR_FOOT', 'HL_FOOT', 'HR_FOOT'] lite3
+        # ['FL_foot', 'FR_foot', 'RL_foot', 'RR_foot'] a1
 
 
         for s in ["FR_FOOT", "FL_FOOT", "HR_FOOT", "HL_FOOT"]:
