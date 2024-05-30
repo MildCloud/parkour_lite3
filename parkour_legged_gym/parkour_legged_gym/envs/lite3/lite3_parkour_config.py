@@ -35,20 +35,20 @@ class Lite3ParkourCfg( LeggedRobotCfg ):
     class init_state( LeggedRobotCfg.init_state ):
         pos = [0.0, 0.0, 0.3] # x,y,z [m]
         default_joint_angles = { # = target angles [rad] when action = 0.0
-            'FL_HipX': -0.1,   # [rad]
+            'FL_HipX': -0.1,  # [rad]
             'FR_HipX': 0.1,   # [rad]
-            'HL_HipX': -0.1 ,  # [rad]
+            'HL_HipX': -0.1 , # [rad]
             'HR_HipX': 0.1,   # [rad]
 
-            'FL_HipY': -0.8,     # [rad] # y
-            'FR_HipY': -0.8,   # [rad]
-            'HL_HipY': -0.8,     # [rad]
-            'HR_HipY': -0.8,   # [rad]
+            'FL_HipY': -1.,   # [rad] # y
+            'FR_HipY': -1.,   # [rad]
+            'HL_HipY': -1.,   # [rad]
+            'HR_HipY': -1.,   # [rad]
 
-            'FL_Knee': 1.6,   # [rad] # knee
-            'FR_Knee': 1.6,    # [rad]
-            'HL_Knee': 1.6,  # [rad]
-            'HR_Knee': 1.6,    # [rad]
+            'FL_Knee': 1.8,   # [rad] # knee
+            'FR_Knee': 1.8,   # [rad]
+            'HL_Knee': 1.8,   # [rad]
+            'HR_Knee': 1.8,   # [rad]
         }
 
     class control( LeggedRobotCfg.control ):
