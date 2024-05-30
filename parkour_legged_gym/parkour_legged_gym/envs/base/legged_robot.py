@@ -117,7 +117,7 @@ class LeggedRobot(BaseTask):
         Args:
             actions (torch.Tensor): Tensor of shape (num_envs, num_actions_per_env)
         """
-        actions = self.reindex(actions)
+        # actions = self.reindex(actions)
 
         actions.to(self.device)
         self.action_history_buf = torch.cat([self.action_history_buf[:, 1:].clone(), actions[:, None, :].clone()], dim=1)
@@ -398,10 +398,10 @@ class LeggedRobot(BaseTask):
                             self.commands[:, 0:1],  #[1,1]
                             (self.env_class != 17).float()[:, None], # 1
                             (self.env_class == 17).float()[:, None], # 1
-                            self.reindex((self.dof_pos - self.default_dof_pos_all) * self.obs_scales.dof_pos), # 12
-                            self.reindex(self.dof_vel * self.obs_scales.dof_vel), # 12
-                            self.reindex(self.action_history_buf[:, -1]), # 12
-                            self.reindex_feet(self.contact_filt.float()-0.5), # 4
+                            (self.dof_pos - self.default_dof_pos_all) * self.obs_scales.dof_pos, # 12
+                            self.dof_vel * self.obs_scales.dof_vel, # 12
+                            self.action_history_buf[:, -1], # 12
+                            self.contact_filt.float()-0.5, # 4
                             ),dim=-1)
         # print('obs_buf.shape', obs_buf.shape) # torch.size([num_envs, 53])
         priv_explicit = torch.cat((self.base_lin_vel * self.obs_scales.lin_vel,
