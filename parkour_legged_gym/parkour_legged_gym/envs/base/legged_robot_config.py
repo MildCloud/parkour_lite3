@@ -38,7 +38,7 @@ class LeggedRobotCfg(BaseConfig):
         load_student_config = False
         mask_priv_obs = False
     class env:
-        num_envs = 64
+        num_envs = 512
 
         n_scan = 132
         n_priv = 3+3 +3
@@ -88,7 +88,7 @@ class LeggedRobotCfg(BaseConfig):
 
     class depth:
         use_camera = False
-        camera_num_envs = 192
+        camera_num_envs = 43
         camera_terrain_num_rows = 10
         camera_terrain_num_cols = 20
 
