@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?> 
 <robot name="MiniLiteV3"> 
   <link name="TORSO"> 
-    <visual> 
+    <!-- <visual> 
       <origin rpy="0 0 0" xyz="0.0 0.0 0.0"/> 
       <geometry> 
         <mesh filename="../meshes/Lite3.dae" /> 
       </geometry> 
-    </visual> 
+    </visual>  -->
     <collision> 
       <geometry> 
         <box size="0.35 0.184 0.08"/> 
@@ -33,12 +33,12 @@
       <mass value="0.428" /> 
       <inertia ixx="0.00014538" ixy="8.1579E-07" ixz="-1.264E-05" iyy="0.00024024" iyz="1.3443E-06" izz="0.00013038" /> 
     </inertial> 
-    <visual> 
+    <!-- <visual> 
       <origin rpy="0 0 0" xyz="0.0 0.0 0.0"/> 
       <geometry> 
         <mesh filename="../meshes/FL_HIP.dae" /> 
       </geometry> 
-    </visual> 
+    </visual>  -->
   </link> 
  
   <joint name="FL_HipX" type="revolute"> 
@@ -55,12 +55,12 @@
       <mass value="0.61" /> 
       <inertia ixx="0.001" ixy="-2.5E-06" ixz="-1.12E-04" iyy="0.00116" iyz="3.75E-07" izz="2.68E-04" /> 
     </inertial> 
-    <visual> 
+    <!-- <visual> 
       <origin rpy="0 0 0" xyz="0.0 0.0 0.0"/> 
       <geometry> 
         <mesh filename="../meshes/L_THIGH.dae" /> 
       </geometry> 
-    </visual> 
+    </visual>  -->
     <collision> 
       <origin xyz="0 0 -0.08"/> 
       <geometry> 
@@ -83,11 +83,11 @@
       <mass value="0.115" /> 
       <inertia ixx="6.68E-04" ixy="-1.24E-08" ixz="6.91E-06" iyy="6.86E-04" iyz="5.65E-09" izz="3.155E-05" /> 
     </inertial> 
-    <visual> 
+    <!-- <visual> 
       <geometry> 
         <mesh filename="../meshes/SHANK.dae" /> 
       </geometry> 
-    </visual> 
+    </visual>  -->
     <collision> 
       <origin xyz="0 0 -0.09"/> 
       <geometry> 
@@ -128,12 +128,12 @@
       <mass value="0.428" /> 
       <inertia ixx="0.00014538" ixy="-8.1551E-07" ixz="-1.2639E-05" iyy="0.00024024" iyz="-1.3441E-06" izz="0.00013038" /> 
     </inertial> 
-    <visual> 
+    <!-- <visual> 
       <origin rpy="0 0 0" xyz="0.0 0.0 0.0"/> 
       <geometry> 
         <mesh filename="../meshes/FR_HIP.dae" /> 
       </geometry> 
-    </visual> 
+    </visual>  -->
   </link> 
  
   <joint name="FR_HipX" type="revolute"> 
@@ -150,12 +150,12 @@
       <mass value="0.61" /> 
       <inertia ixx="0.001" ixy="2.5E-06" ixz="-1.12E-04" iyy="0.00116" iyz="-3.75E-07" izz="2.68E-04" /> 
     </inertial> 
-    <visual> 
+    <!-- <visual> 
       <origin rpy="0 0 0" xyz="0.0 0.0 0.0"/> 
       <geometry> 
         <mesh filename="../meshes/R_THIGH.dae" /> 
       </geometry> 
-    </visual> 
+    </visual>  -->
     <collision> 
       <origin xyz="0 0 -0.08"/> 
       <geometry> 
@@ -178,11 +178,11 @@
       <mass value="0.115" /> 
       <inertia ixx="6.68E-04" ixy="-1.24E-08" ixz="6.91E-06" iyy="6.86E-04" iyz="5.65E-09" izz="3.155E-05" /> 
     </inertial> 
-    <visual> 
+    <!-- <visual> 
       <geometry> 
         <mesh filename="../meshes/SHANK.dae" /> 
       </geometry> 
-    </visual> 
+    </visual>  -->
     <collision> 
       <origin xyz="0 0 -0.09"/> 
       <geometry> 
@@ -223,12 +223,12 @@
       <mass value="0.428" /> 
       <inertia ixx="0.00014538" ixy="-8.1585E-07" ixz="1.2639E-05" iyy="0.00024024" iyz="1.3444E-06" izz="0.00013038" /> 
     </inertial> 
-    <visual> 
+    <!-- <visual> 
       <origin rpy="0 0 0" xyz="0.0 0.0 0.0"/> 
       <geometry> 
         <mesh filename="../meshes/HL_HIP.dae" /> 
       </geometry> 
-    </visual> 
+    </visual>  -->
   </link> 
  
   <joint name="HL_HipX" type="revolute"> 
@@ -245,12 +245,12 @@
       <mass value="0.61" /> 
       <inertia ixx="0.001" ixy="-2.5E-06" ixz="-1.12E-04" iyy="0.00116" iyz="3.75E-07" izz="2.68E-04" /> 
     </inertial> 
-    <visual> 
+    <!-- <visual> 
       <origin rpy="0 0 0" xyz="0.0 0.0 0.0"/> 
       <geometry> 
         <mesh filename="../meshes/L_THIGH.dae" /> 
       </geometry> 
-    </visual> 
+    </visual>  -->
     <collision> 
       <origin xyz="0 0 -0.08"/> 
       <geometry> 
@@ -273,11 +273,11 @@
       <mass value="0.115" /> 
       <inertia ixx="6.68E-04" ixy="-1.24E-08" ixz="6.91E-06" iyy="6.86E-04" iyz="5.65E-09" izz="3.155E-05" /> 
     </inertial> 
-    <visual> 
+    <!-- <visual> 
       <geometry> 
         <mesh filename="../meshes/SHANK.dae" /> 
       </geometry> 
-    </visual> 
+    </visual>  -->
     <collision> 
       <origin xyz="0 0 -0.09"/> 
       <geometry> 
@@ -318,12 +318,12 @@
       <mass value="0.428" /> 
       <inertia ixx="0.00014538" ixy="8.1545E-07" ixz="1.2639E-05" iyy="0.00024024" iyz="-1.344E-06" izz="0.00013038" /> 
     </inertial> 
-    <visual> 
+    <!-- <visual> 
       <origin rpy="0 0 0" xyz="0.0 0.0 0.0"/> 
       <geometry> 
         <mesh filename="../meshes/HR_HIP.dae" /> 
       </geometry> 
-    </visual> 
+    </visual>  -->
   </link> 
  
   <joint name="HR_HipX" type="revolute"> 
@@ -340,12 +340,12 @@
       <mass value="0.61" /> 
       <inertia ixx="0.001" ixy="2.5E-06" ixz="-1.12E-04" iyy="0.00116" iyz="-3.75E-07" izz="2.68E-04" /> 
     </inertial> 
-    <visual> 
+    <!-- <visual> 
       <origin rpy="0 0 0" xyz="0.0 0.0 0.0"/> 
       <geometry> 
         <mesh filename="../meshes/R_THIGH.dae" /> 
       </geometry> 
-    </visual> 
+    </visual>  -->
     <collision> 
       <origin xyz="0 0 -0.08"/> 
       <geometry> 
@@ -368,11 +368,11 @@
       <mass value="0.115" /> 
       <inertia ixx="6.68E-04" ixy="-1.24E-08" ixz="6.91E-06" iyy="6.86E-04" iyz="5.65E-09" izz="3.155E-05" /> 
     </inertial> 
-    <visual> 
+    <!-- <visual> 
       <geometry> 
         <mesh filename="../meshes/SHANK.dae" /> 
       </geometry> 
-    </visual> 
+    </visual>  -->
     <collision> 
       <origin xyz="0 0 -0.09"/> 
       <geometry> 
