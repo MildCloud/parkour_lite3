@@ -33,7 +33,7 @@ from parkour_legged_gym.envs.base.legged_robot_config import LeggedRobotCfg, Leg
 
 class Lite3ParkourCfg( LeggedRobotCfg ):
     class init_state( LeggedRobotCfg.init_state ):
-        pos = [0.0, 0.0, 0.3] # x,y,z [m]
+        pos = [0.0, 0.0, 0.35] # x,y,z [m]
         default_joint_angles = { # = target angles [rad] when action = 0.0
             'FL_HipX': -0.1,  # [rad]
             'FR_HipX': 0.1,   # [rad]
