@@ -35,20 +35,20 @@ class Lite3ParkourCfg( LeggedRobotCfg ):
     class init_state( LeggedRobotCfg.init_state ):
         pos = [0.0, 0.0, 0.35] # x,y,z [m]
         default_joint_angles = { # = target angles [rad] when action = 0.0
-            'FL_HipX': -0.1,  # [rad]
-            'FR_HipX': 0.1,   # [rad]
-            'HL_HipX': -0.1 , # [rad]
-            'HR_HipX': 0.1,   # [rad]
+            'FL_HipX_joint': -0.1,  # [rad]
+            'FR_HipX_joint': 0.1,   # [rad]
+            'HL_HipX_joint': -0.1 , # [rad]
+            'HR_HipX_joint': 0.1,   # [rad]
 
-            'FL_HipY': -1.,   # [rad] # y
-            'FR_HipY': -1.,   # [rad]
-            'HL_HipY': -1.,   # [rad]
-            'HR_HipY': -1.,   # [rad]
+            'FL_HipY_joint': -1.,   # [rad] # y
+            'FR_HipY_joint': -1.,   # [rad]
+            'HL_HipY_joint': -1.,   # [rad]
+            'HR_HipY_joint': -1.,   # [rad]
 
-            'FL_Knee': 1.8,   # [rad] # knee
-            'FR_Knee': 1.8,   # [rad]
-            'HL_Knee': 1.8,   # [rad]
-            'HR_Knee': 1.8,   # [rad]
+            'FL_Knee_joint': 1.8,   # [rad] # knee
+            'FR_Knee_joint': 1.8,   # [rad]
+            'HL_Knee_joint': 1.8,   # [rad]
+            'HR_Knee_joint': 1.8,   # [rad]
         }
 
     class control( LeggedRobotCfg.control ):
@@ -68,7 +68,7 @@ class Lite3ParkourCfg( LeggedRobotCfg ):
   
     class rewards( LeggedRobotCfg.rewards ):
         soft_dof_pos_limit = 0.9
-        base_height_target = 0.25
+        base_height_target = 0.35 #TODO modify this?
 
 class Lite3ParkourCfgPPO( LeggedRobotCfgPPO ):
     class algorithm( LeggedRobotCfgPPO.algorithm ):

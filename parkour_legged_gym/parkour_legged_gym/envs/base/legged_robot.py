@@ -1006,15 +1006,15 @@ class LeggedRobot(BaseTask):
         for i in range(len(termination_contact_names)):
             self.termination_contact_indices[i] = self.gym.find_actor_rigid_body_handle(self.envs[0], self.actor_handles[0], termination_contact_names[i])
 
-        hip_names = ["FR_HipX", "FL_HipX", "HR_HipX", "HL_HipX"]
+        hip_names = ["FR_HipX_joint", "FL_HipX_joint", "HR_HipX_joint", "HL_HipX_joint"]
         self.hip_indices = torch.zeros(len(hip_names), dtype=torch.long, device=self.device, requires_grad=False)
         for i, name in enumerate(hip_names):
             self.hip_indices[i] = self.dof_names.index(name)
-        thigh_names = ["FR_HipY", "FL_HipY", "HR_HipY", "HL_HipY"]
+        thigh_names = ["FR_HipY_joint", "FL_HipY_joint", "HR_HipY_joint", "HL_HipY_joint"]
         self.thigh_indices = torch.zeros(len(thigh_names), dtype=torch.long, device=self.device, requires_grad=False)
         for i, name in enumerate(thigh_names):
             self.thigh_indices[i] = self.dof_names.index(name)
-        calf_names = ["FR_Knee", "FL_Knee", "HR_Knee", "HL_Knee"]
+        calf_names = ["FR_Knee_joint", "FL_Knee_joint", "HR_Knee_joint", "HL_Knee_joint"]
         self.calf_indices = torch.zeros(len(calf_names), dtype=torch.long, device=self.device, requires_grad=False)
         for i, name in enumerate(calf_names):
             self.calf_indices[i] = self.dof_names.index(name)
