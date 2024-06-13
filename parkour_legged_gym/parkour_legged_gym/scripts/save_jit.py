@@ -90,10 +90,16 @@ def play(args):
     # policy.load_state_dict(ac_state_dict['model_state_dict'], strict=False)
     policy.actor.load_state_dict(ac_state_dict['depth_actor_state_dict'], strict=True)
     policy.estimator.load_state_dict(ac_state_dict['estimator_state_dict'])
+
+    depth_backbone = DepthOnlyFCBackbone58x87(n_proprio, 32, 512)
+    depth_encoder = RecurrentDepthBackbone(depth_backbone, None).to(device)
+    depth_encoder.load_state_dict(ac_state_dict['depth_encoder_state_dict'])
     
     policy = policy.to(device)#.cpu()
     if not os.path.exists(os.path.join(load_run, "traced")):
         os.mkdir(os.path.join(load_run, "traced"))
+    if not os.path.exists(os.path.join(load_run, "script")):
+        os.mkdir(os.path.join(load_run, "script"))
     state_dict = {'depth_encoder_state_dict': ac_state_dict['depth_encoder_state_dict']}
     torch.save(state_dict, os.path.join(load_run, "traced", args.exptid + "-" + str(checkpoint) + "-vision_weight.pt"))
 
@@ -112,6 +118,16 @@ def play(args):
         save_path = os.path.join(load_run, "traced", args.exptid + "-" + str(checkpoint) + "-base_jit.pt")
         traced_policy.save(save_path)
         print("Saved traced_actor at ", os.path.abspath(save_path))
+
+    depth_encoder.eval()
+    with torch.no_grad():
+        depth_image_input = torch.ones(1, 58, 87)
+        prop_input = torch.ones(1, 53)
+        test = depth_encoder(depth_image_input, prop_input)
+        script_depth_enc = torch.jit.script(depth_encoder)
+        save_path = os.path.join(load_run, "script", args.exptid + "-" + str(checkpoint) + "-depth_enc_jit.pt")
+        script_depth_enc.save(save_path) 
+        print("Saved script_depth_enc at ", os.path.abspath(save_path))
 
     
 if __name__ == '__main__':
