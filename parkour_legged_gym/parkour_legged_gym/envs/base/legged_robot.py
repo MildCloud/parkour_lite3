@@ -266,6 +266,7 @@ class LeggedRobot(BaseTask):
         self.compute_observations() # in some cases a simulation step might be required to refresh some obs (for example body positions)
 
         self.last_actions[:] = self.actions[:]
+        self.last_actions_2[:] = self.last_actions[:]
         self.last_dof_vel[:] = self.dof_vel[:]
         self.last_torques[:] = self.torques[:]
         self.last_root_vel[:] = self.root_states[:, 7:13]
@@ -333,6 +334,7 @@ class LeggedRobot(BaseTask):
 
         # reset buffers
         self.last_actions[env_ids] = 0.
+        self.last_actions_2[env_ids] = 0.
         self.last_dof_vel[env_ids] = 0.
         self.last_torques[env_ids] = 0.
         self.last_root_vel[:] = 0.
@@ -401,7 +403,7 @@ class LeggedRobot(BaseTask):
                             (self.dof_pos - self.default_dof_pos_all) * self.obs_scales.dof_pos, # 12
                             self.dof_vel * self.obs_scales.dof_vel, # 12
                             self.action_history_buf[:, -1], # 12
-                            self.contact_filt.float()-0.5, # 4
+                            0*(self.contact_filt.float()-0.5), # 4
                             ),dim=-1)
         # print('obs_buf.shape', obs_buf.shape) # torch.size([num_envs, 53])
         priv_explicit = torch.cat((self.base_lin_vel * self.obs_scales.lin_vel,
@@ -735,6 +737,7 @@ class LeggedRobot(BaseTask):
         self.d_gains = torch.zeros(self.num_actions, dtype=torch.float, device=self.device, requires_grad=False)
         self.actions = torch.zeros(self.num_envs, self.num_actions, dtype=torch.float, device=self.device, requires_grad=False)
         self.last_actions = torch.zeros(self.num_envs, self.num_actions, dtype=torch.float, device=self.device, requires_grad=False)
+        self.last_actions_2 = torch.zeros(self.num_envs, self.num_actions, dtype=torch.float, device=self.device, requires_grad=False)
         self.last_dof_vel = torch.zeros_like(self.dof_vel)
         self.last_torques = torch.zeros_like(self.torques)
         self.last_root_vel = torch.zeros_like(self.root_states[:, 7:13])
@@ -1293,3 +1296,7 @@ class LeggedRobot(BaseTask):
         self.feet_at_edge = self.contact_filt & feet_at_edge
         rew = (self.terrain_levels > 3) * torch.sum(self.feet_at_edge, dim=-1)
         return rew
+
+    def _reward_smoothness(self):
+        # Penalize changes in actions
+        return torch.sum(torch.square(self.actions - 2*self.last_actions+self.last_actions_2), dim=1)
