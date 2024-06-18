@@ -401,7 +401,7 @@ class LeggedRobot(BaseTask):
                             (self.dof_pos - self.default_dof_pos_all) * self.obs_scales.dof_pos, # 12
                             self.dof_vel * self.obs_scales.dof_vel, # 12
                             self.action_history_buf[:, -1], # 12
-                            0*(self.contact_filt.float()-0.5), # 4
+                            self.contact_filt.float()-0.5, # 4
                             ),dim=-1)
         # print('obs_buf.shape', obs_buf.shape) # torch.size([num_envs, 53])
         priv_explicit = torch.cat((self.base_lin_vel * self.obs_scales.lin_vel,

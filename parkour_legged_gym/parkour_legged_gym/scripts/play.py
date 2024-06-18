@@ -157,7 +157,7 @@ def play(args):
                 obs[:, 6:8] = 1.5*yaw
                     
             else:
-                depth_latent = None
+                depth_latent = None # None for teacher
             
             if hasattr(ppo_runner.alg, "depth_actor"):
                 actions = ppo_runner.alg.depth_actor(obs.detach(), hist_encoding=True, scandots_latent=depth_latent)

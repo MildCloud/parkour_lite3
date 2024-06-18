@@ -9,7 +9,7 @@
       <mass value="5.6056" />
       <inertia ixx="0.02456" ixy="0" ixz="0" iyy="0.05518" iyz="0" izz="0.07016" />
     </inertial>
-    <!-- <visual>
+    <visual>
       <origin xyz="0 0 0" rpy="-1.57 0 0" />
       <geometry>
         <mesh filename="../meshes/torso.STL" />
@@ -17,7 +17,7 @@
       <material name="">
         <color rgba="1 1 1 1" />
       </material>
-    </visual> -->
+    </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
@@ -34,7 +34,7 @@
       <mass value="0.550" />
       <inertia ixx="0.0003949" ixy="0" ixz="0" iyy="0.0004028" iyz="0" izz="0.0004472" />
     </inertial>
-    <!-- <visual>
+    <visual>
       <origin xyz="0 0 0" rpy="-1.57 0 0" />
       <geometry>
         <mesh filename="../meshes/fl_hip.STL" />
@@ -42,7 +42,7 @@
       <material name="">
         <color rgba="1 1 1 1" />
       </material>
-    </visual> -->
+    </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
@@ -63,7 +63,7 @@
       <mass value="0.86" />
       <inertia ixx="0.005736" ixy="0" ixz="0" iyy="0.004960" iyz="0" izz="0.001436" />
     </inertial>
-    <!-- <visual>
+    <visual>
       <origin xyz="0 0 0" rpy="-1.57 0 0" />
       <geometry>
         <mesh filename="../meshes/fl_thigh.STL" />
@@ -71,7 +71,7 @@
       <material name="">
         <color rgba="1 1 1 1" />
       </material>
-    </visual> -->
+    </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
@@ -92,7 +92,7 @@
       <mass value="0.153" />
       <inertia ixx="0.00089039" ixy="0"  ixz="0"  iyy="0.00090672" iyz="0" izz="3.1266E-05" />
     </inertial>
-    <!-- <visual>
+    <visual>
       <origin xyz="0 0 0" rpy="-1.57 0 0" />
       <geometry>
         <mesh filename="../meshes/fl_shank_collision.STL" />
@@ -100,7 +100,7 @@
       <material name="">
         <color rgba="1 1 1 1" />
       </material>
-    </visual> -->
+    </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
@@ -130,7 +130,7 @@
         <sphere radius="0.022" />
       </geometry>
     </collision>
-    <!-- <visual>
+    <visual>
       <origin xyz="0 0 0" rpy="-1.57 0 0" />
       <geometry>
         <sphere radius="0.022" />
@@ -138,7 +138,7 @@
       <material name="">
         <color rgba="1 1 1 1" />
       </material>
-    </visual> -->
+    </visual>
     <inertial>
       <mass value="0.02"/>
       <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
@@ -159,7 +159,7 @@
       <mass value="0.550" />
       <inertia ixx="0.0004472" ixy="0" ixz="0" iyy="0.0004028" iyz="0" izz="0.0003949" />
     </inertial>
-    <!-- <visual>
+    <visual>
       <origin xyz="0 0 0" rpy="-1.57 0 0" />
       <geometry>
         <mesh filename="../meshes/fr_hip.STL" />
@@ -167,7 +167,7 @@
       <material name="">
         <color rgba="1 1 1 1" />
       </material>
-    </visual> -->
+    </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
@@ -190,7 +190,7 @@
       <!-- inertia ixx="0.00433" ixy="0.00001" ixz="0.00034" iyy="0.00403"  iyz="-0.0000186" izz="0.00143" -->
       <inertia ixx="0.005736" ixy="0" ixz="0" iyy="0.004960" iyz="0" izz="0.001436" />
     </inertial>
-    <!-- <visual>
+    <visual>
       <origin xyz="0 0 0" rpy="-1.57 0 0" />
       <geometry>
         <mesh filename="../meshes/fr_thigh.STL" />
@@ -198,7 +198,7 @@
       <material name="">
         <color rgba="1 1 1 1" />
       </material>
-    </visual> -->
+    </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
@@ -219,7 +219,7 @@
       <mass value="0.153" />
       <inertia ixx="0.00089039" ixy="0"  ixz="0"  iyy="0.00090672" iyz="0" izz="3.1266E-05" />
     </inertial>
-    <!-- <visual>
+    <visual>
       <origin xyz="0 0 0" rpy="-1.57 0 0" />
       <geometry>
         <mesh filename="../meshes/fr_shank_collision.STL" />
@@ -227,7 +227,7 @@
       <material name="">
         <color rgba="1 1 1 1" />
       </material>
-    </visual> -->
+    </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
@@ -257,7 +257,7 @@
         <sphere radius="0.022" />
       </geometry>
     </collision>
-     <!-- <visual>
+     <visual>
       <origin xyz="0 0 0" rpy="-1.57 0 0" />
       <geometry>
         <sphere radius="0.022" />
@@ -265,7 +265,7 @@
       <material name="">
         <color rgba="1 1 1 1" />
       </material>
-    </visual> -->
+    </visual>
     <inertial>
       <mass value="0.02"/>
       <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
@@ -286,7 +286,7 @@
       <mass value="0.550" />
       <inertia ixx="0.0003949" ixy="0" ixz="0" iyy="0.0004028" iyz="0" izz="0.0004472" />
     </inertial>
-    <!-- <visual>
+    <visual>
       <origin xyz="0 0 0" rpy="-1.57 0 0" />
       <geometry>
         <mesh filename="../meshes/hl_hip.STL" />
@@ -294,7 +294,7 @@
       <material name="">
         <color rgba="1 1 1 1" />
       </material>
-    </visual> -->
+    </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
@@ -315,7 +315,7 @@
       <mass value="0.86" />
       <inertia ixx="0.005736" ixy="0" ixz="0" iyy="0.004960" iyz="0" izz="0.001436" />
     </inertial>
-    <!-- <visual>
+    <visual>
       <origin xyz="0 0 0" rpy="-1.57 0 0" />
       <geometry>
         <mesh filename="../meshes/hl_thigh.STL" />
@@ -323,7 +323,7 @@
       <material name="">
         <color rgba="1 1 1 1" />
       </material>
-    </visual> -->
+    </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
@@ -344,7 +344,7 @@
       <mass value="0.153" />
       <inertia ixx="0.00089039" ixy="0"  ixz="0"  iyy="0.00090672" iyz="0" izz="3.1266E-05" />
     </inertial>
-    <!-- <visual>
+    <visual>
       <origin xyz="0 0 0" rpy="-1.57 0 0" />
       <geometry>
         <mesh filename="../meshes/hl_shank_collision.STL" />
@@ -352,7 +352,7 @@
       <material name="">
         <color rgba="1 1 1 1" />
       </material>
-    </visual> -->
+    </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
@@ -382,7 +382,7 @@
         <sphere radius="0.022" />
       </geometry>
     </collision>
-    <!-- <visual>
+    <visual>
       <origin xyz="0 0 0" rpy="-1.57 0 0" />
       <geometry>
         <sphere radius="0.022" />
@@ -390,7 +390,7 @@
       <material name="">
         <color rgba="1 1 1 1" />
       </material>
-    </visual> -->
+    </visual>
     <inertial>
       <mass value="0.02"/>
       <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
@@ -411,7 +411,7 @@
       <mass value="0.550" />
       <inertia ixx="0.0003949" ixy="0" ixz="0" iyy="0.0004028" iyz="0" izz="0.0004472" />
     </inertial>
-    <!-- <visual>
+    <visual>
       <origin xyz="0 0 0" rpy="-1.57 0 0" />
       <geometry>
         <mesh filename="../meshes/hr_hip.STL" />
@@ -419,7 +419,7 @@
       <material name="">
         <color rgba="1 1 1 1" />
       </material>
-    </visual> -->
+    </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
@@ -440,7 +440,7 @@
       <mass value="0.86"/>
       <inertia ixx="0.005736" ixy="0" ixz="0" iyy="0.004960" iyz="0" izz="0.001436" />
     </inertial>
-    <!-- <visual>
+    <visual>
       <origin xyz="0 0 0" rpy="-1.57 0 0" />
       <geometry>
         <mesh filename="../meshes/hr_thigh.STL" />
@@ -448,7 +448,7 @@
       <material name="">
         <color rgba="1 1 1 1" />
       </material>
-    </visual> -->
+    </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
@@ -469,7 +469,7 @@
       <mass value="0.153" />
       <inertia ixx="0.00089039" ixy="0"  ixz="0"  iyy="0.00090672" iyz="0" izz="3.1266E-05" />
     </inertial>
-    <!-- <visual>
+    <visual>
       <origin xyz="0 0 0" rpy="-1.57 0 0" />
       <geometry>
         <mesh filename="../meshes/hr_shank_collision.STL" />
@@ -477,7 +477,7 @@
       <material name="">
         <color rgba="1 1 1 1" />
       </material>
-    </visual> -->
+    </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
@@ -507,7 +507,7 @@
         <sphere radius="0.022" />
       </geometry>
     </collision>
-      <!-- <visual>
+      <visual>
       <origin xyz="0 0 0" rpy="-1.57 0 0" />
       <geometry>
         <sphere radius="0.022" />
@@ -515,7 +515,7 @@
       <material name="">
         <color rgba="1 1 1 1" />
       </material>
-    </visual> -->
+    </visual>
     <inertial>
       <mass value="0.02"/>
       <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
