@@ -219,6 +219,9 @@ class OnPolicyRunner:
         self.save(os.path.join(self.log_dir, 'model_{}.pt'.format(self.current_learning_iteration)))
 
     def learn_vision(self, num_learning_iterations, init_at_random_ep_len=False):
+        # initialize writer
+        if self.log_dir is not None and self.writer is None:
+            self.writer = SummaryWriter(log_dir=self.log_dir, flush_secs=10)
         tot_iter = self.current_learning_iteration + num_learning_iterations
         self.start_learning_iteration = copy(self.current_learning_iteration)
 
@@ -342,6 +345,7 @@ class OnPolicyRunner:
                 value = torch.mean(infotensor)
                 wandb_dict['Episode_rew/' + key] = value
                 ep_string += f"""{f'Mean episode {key}:':>{pad}} {value:.4f}\n"""
+                self.writer.add_scalar('Episode/' + key, value, locs['it'])
         mean_std = self.alg.actor_critic.std.mean()
         fps = int(self.num_steps_per_env * self.env.num_envs / (locs['collection_time'] + locs['learn_time']))
 
@@ -353,9 +357,16 @@ class OnPolicyRunner:
         wandb_dict['Perf/total_fps'] = fps
         wandb_dict['Perf/collection time'] = locs['collection_time']
         wandb_dict['Perf/learning_time'] = locs['learn_time']
+        self.writer.add_scalar('Loss_depth/delta_yaw_ok_percent', locs['delta_yaw_ok_percentage'], locs['it'])
+        self.writer.add_scalar('Loss_depth/depth_encoder', locs['Loss_depth/depth_encoder'], locs['it'])
+        self.writer.add_scalar('Loss_depth/depth_actor', locs['Loss_depth/depth_actor'], locs['it'])
+        self.writer.add_scalar('Loss_depth/yaw', locs['Loss_depth/yaw'], locs['it'])
+
         if len(locs['rewbuffer']) > 0:
             wandb_dict['Train/mean_reward'] = statistics.mean(locs['rewbuffer'])
             wandb_dict['Train/mean_episode_length'] = statistics.mean(locs['lenbuffer'])
+            self.writer.add_scalar('Train/mean_reward', statistics.mean(locs['rewbuffer']), locs['it'])
+            self.writer.add_scalar('Train/mean_episode_length', statistics.mean(locs['lenbuffer']), locs['it'])
         
         # wandb.log(wandb_dict, step=locs['it'])
 
