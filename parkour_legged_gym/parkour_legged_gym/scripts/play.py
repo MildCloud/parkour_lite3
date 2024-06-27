@@ -97,7 +97,7 @@ def play(args):
     env_cfg.terrain.curriculum = False
     env_cfg.terrain.max_difficulty = True
     
-    env_cfg.depth.angle = [0, 1]
+    env_cfg.depth.angle = [19, 20]
     env_cfg.noise.add_noise = True
     env_cfg.domain_rand.randomize_friction = True
     env_cfg.domain_rand.push_robots = False
@@ -152,6 +152,11 @@ def play(args):
                     obs_student = obs[:, :env.cfg.env.n_proprio].clone()
                     obs_student[:, 6:8] = 0
                     depth_latent_and_yaw = depth_encoder(infos["depth"], obs_student)
+                    # print('depth_image')
+                    # for depth_row in infos["depth"][0]:
+                    #     print(depth_row)
+                    # print('obs_student', obs_student[0])
+                    # print('depth_latent_and_yaw\n', depth_latent_and_yaw[0])
                     depth_latent = depth_latent_and_yaw[:, :-2]
                     yaw = depth_latent_and_yaw[:, -2:]
                 obs[:, 6:8] = 1.5*yaw
@@ -170,9 +175,9 @@ def play(args):
                         step_graphics=True,
                         render_all_camera_sensors=True,
                         wait_for_page_load=True)
-        print("time:", env.episode_length_buf[env.lookat_id].item() / 50, 
-              "cmd vx", env.commands[env.lookat_id, 0].item(),
-              "actual vx", env.base_lin_vel[env.lookat_id, 0].item(), )
+        # print("time:", env.episode_length_buf[env.lookat_id].item() / 50, 
+        #       "cmd vx", env.commands[env.lookat_id, 0].item(),
+        #       "actual vx", env.base_lin_vel[env.lookat_id, 0].item(), )
         
         id = env.lookat_id
         
