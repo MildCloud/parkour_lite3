@@ -8,6 +8,13 @@
 **Paper**: https://arxiv.org/abs/2309.14341  
 **Tweet Summary**: https://twitter.com/pathak2206/status/1706696237703901439
 
+### Add Lite3 Config ###
+
+<p align="center">
+<img src="./images/parkour_6_17_lite3_camera.gif" width="80%"/>
+</p>
+Student Policy for lite3
+
 ### Installation ###
 ```bash
 conda create -n parkour python=3.8
